@@ -12,4 +12,5 @@ Run Docker container
 
 
 you can also use docker compose tu build and run the application with
-	docker-compose up
+
+    docker-compose up
