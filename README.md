@@ -1,24 +1,15 @@
+
 # README
+This is a sample Ruby on Rails application containing the minimum requirements to run.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Build Docker container
 
-Things you may want to cover:
+	docker build -t demo-app_web .
 
-* Ruby version
+you can also use docker compose tu build the web application with
+	 `docker-compose build`
 
-* System dependencies
+Run Docker container
 
-* Configuration
+    docker run -d -p 80:3000 demo-app_web
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
