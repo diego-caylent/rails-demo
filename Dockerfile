@@ -10,10 +10,13 @@ WORKDIR /app
 
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
-#install ruby project
-RUN bundle install -j 10
+
 #Copy all application to image
 COPY . /app
+
+#install ruby project
+RUN bundle install -j 10
+
 #Expose the internal port used by the application
 EXPOSE 3000
 # Configure the main process to run when running the image
