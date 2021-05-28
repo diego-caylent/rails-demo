@@ -1,0 +1,35 @@
+{
+    "family": "rails-task",
+    "networkMode": "awsvpc",
+    "executionRoleArn": "arn:aws:iam::296888759146:role/ECSStack-ECSECRtaskroleAB4C0017-1ES9HNL3CXO3W",
+    "containerDefinitions": [
+        {
+            "name": "web-api",
+            "image": "296888759146.dkr.ecr.us-east-1.amazonaws.com/rails-demo-repo:latest",
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/test-ecs-task",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ruby"
+                }
+            },
+            "command": [
+                "./start.sh"
+            ]
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
+}

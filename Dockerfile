@@ -16,9 +16,10 @@ COPY . /app
 
 #install ruby project
 RUN bundle install -j 10
-
+RUN sed -i 's/\r$//' start.sh  && \  
+        chmod +x start.sh
 #Expose the internal port used by the application
 EXPOSE 3000
 # Configure the main process to run when running the image
 #CMD ["rails", "server", "-b", "0.0.0.0"]
-ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
+ENTRYPOINT ["./start.sh"]
